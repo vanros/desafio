@@ -1,14 +1,22 @@
 <h1>Members</h1>
 
-<ul>
-  <li *ngFor="let member of members" (click)="memberClicked(member)">
-    {{ member.id }} - {{ member.name }} - {{ member.address }}
-  </li>
-</ul>
+<table class="alt">
+  <thead>
+    <th>Nome</th>
+    <th>Endereço</th>
+    <th>Telefone</th>
+    <th>E-mail</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let member of members" (click)="memberClicked(member)">
+      <td> {{ member.name }}</td>
+      <td> {{ member.address }}</td>
+      <td> {{ member.phone }}</td>
+      <td> {{ member.email }}</td>
+    </tr>
+    
+  </tbody>
+</table>
 
-<!--<p>{{ selected_member.id }}</p><br>
-<p>{{ selected_member.name }}</p><br>
-<p>{{ selected_member.address }}</p><br>
-<p>{{ selected_member.phone }}</p><br>-->
 
 <router-outlet></router-outlet>

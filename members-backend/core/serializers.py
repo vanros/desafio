@@ -12,4 +12,4 @@ class MemberSerializer(serializers.ModelSerializer):
 class MemberSimpleSerializer(serializers.ModelSerializer):
     class Meta:
         model = Member
-        fields = ['id', 'name']
+        fields = ['id', 'name', 'address', 'phone', 'email']

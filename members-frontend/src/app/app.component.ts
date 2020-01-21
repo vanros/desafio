@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ApiService } from './api.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -8,15 +9,16 @@ import { ApiService } from './api.service';
 })
 export class AppComponent {
   title = 'members-frontend';
-  public selected_member = {id: 0, name: '', address:'', phone:''};
+  public selected_member = {id: 0, name: '', address:'', phone:'', email: ''};
 
   members = [
-    {name: 'Member 01', id: 1, address:'Rua 01', photo:'http://www.minhaapp.com/photo1.png'},
-    {name: 'Member 02', id: 2, address:'Rua 02', photo:'http://www.minhaapp.com/photo2.png'},
-    {name: 'Member 03', id: 3, address:'Rua 03', photo:'http://www.minhaapp.com/photo3.png'},
+    {id: 1, name: 'Member 01', address:'Rua 01', phone:'', email: ''},
+    {id: 2, name: 'Member 02', address:'Rua 02', phone:'', email: ''},
+    {id: 3, name: 'Member 03', address:'Rua 03', phone:'', email: ''},
   ];
 
-  constructor(private api: ApiService){
+  constructor(private api: ApiService,
+              private router: Router){
     this.getMembers();
 
   }
@@ -33,6 +35,7 @@ export class AppComponent {
   };
 
   memberClicked = (member) => {
+    this.router.navigate(['member-detail', member.id]);
 
   };
 

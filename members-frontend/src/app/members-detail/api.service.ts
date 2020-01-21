@@ -17,4 +17,20 @@ export class ApiService {
     {headers: this.httpHeaders});
   };
 
+  updateMember(member) : Observable<any>{
+    return this.http.put(this.baseUrl + 'members/' + member.id + '/', member,
+    {headers: this.httpHeaders});
+  };
+
+  saveMember(member) : Observable<any>{
+    return this.http.post(this.baseUrl + 'members/', member,
+    {headers: this.httpHeaders});
+  };
+
+  deleteMember(id) : Observable<any>{
+    return this.http.delete(this.baseUrl + 'members/' + id + '/',
+    {headers: this.httpHeaders});
+  };
+
+
 }

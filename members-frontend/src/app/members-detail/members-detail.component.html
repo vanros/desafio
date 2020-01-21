@@ -1,3 +1,15 @@
-<p>members-detail works!</p>
+<h3>Detalhe do Estabelecimento</h3>
 
-Membro carregado: {{ selected_member.name }}
+<span class="image left">
+    <img src="{{ selected_member.photo }}" alt="">
+</span>
+<input type="text" [(ngModel)]="selected_member.name"><br>
+<input type="text" [(ngModel)]="selected_member.address"><br>
+<input type="text" [(ngModel)]="selected_member.phone"><br>
+<input type="text" [(ngModel)]="selected_member.email"><br>
+
+<button class="button " (click)="update()">Atualizar</button>
+
+
+<button  class="button primary" (click)="addMember()">Novo</button>
+<button  class="button "  (click)="delete()">Excluir</button>
